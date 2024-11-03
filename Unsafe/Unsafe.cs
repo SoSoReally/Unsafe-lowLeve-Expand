@@ -86,8 +86,8 @@ public static partial class UnsafeCode
     #region NativeContainer As From Span and ReadOnlySpan
 
     /// <summary>
-    /// 需要保证原子操作安全
-    /// span 总是 none，copy 使用 <see cref="ToNativeArray{T}(Span{T}, Allocator)"/>
+    /// 锟斤拷要锟斤拷证原锟接诧拷锟斤拷锟斤拷全
+    /// span 锟斤拷锟斤拷 none锟斤拷copy 使锟斤拷 <see cref="ToNativeArray{T}(Span{T}, Allocator)"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ns"></param>
@@ -144,7 +144,7 @@ public static partial class UnsafeCode
         {
             return new Span<T>(ts.Ptr, ts.Length);
         }
-    public unsafe static ReadOnlySpan<T> AsReadOnlySpan<T>(this ref UnsafeList<T> ts) where T : unmanaged
+    public unsafe static ReadOnlySpan<T> AsReadOnlySpan<T>(this in UnsafeList<T> ts) where T : unmanaged
     {
         return new ReadOnlySpan<T>(ts.Ptr, ts.Length);
     }
