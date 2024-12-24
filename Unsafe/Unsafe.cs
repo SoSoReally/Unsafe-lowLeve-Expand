@@ -377,7 +377,7 @@ public static partial class UnsafeCode
         where T : unmanaged
     {
         return new Unity.Collections.LowLevel.Unsafe.UnsafeList<T>(
-            (T*)Unsafe.AsPointer(ref ns[0]),
+            (T*)Unsafe.AsPointer(ref ns.GetPinnableReference()),
             ns.Length
         );
     }
